@@ -1,2 +1,2 @@
 # Blasfemia
-AV_60pontos_Senai
+Este projeto é uma Avaliação de 60pontos(Senai), Feito na unity
