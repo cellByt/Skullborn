@@ -12,8 +12,14 @@ PrefabInstance:
       value: skullsDisplay Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
+      propertyPath: m_text
+      value: '0
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
       propertyPath: m_fontSize
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
       propertyPath: m_fontColor.b
@@ -29,7 +35,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
       propertyPath: m_fontSizeBase
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
       propertyPath: m_fontColor32.rgba
