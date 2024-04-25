@@ -1,28 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Necromancer : Enemy
+public class Necromancer : MonoBehaviour
 {
-    [Header("Necromancer Variable")]
-    [SerializeField] private GameObject enemyPreFab;
+    [SerializeField] UnityEvent necromancerAttack;
 
-    protected override void RangeAttack()
+    public void Attack()
     {
-        base.RangeAttack();
-
-        Instantiate(enemyPreFab, posAtk.position, Quaternion.identity);
-    }
-
-    protected override void Death()
-    {
-        base.Death();
-
-        Invoke("DestroyObject", 0.84f);
-    }
-
-    private void DestroyObject()
-    {
-        Destroy(gameObject);
+        necromancerAttack.Invoke();
     }
 }

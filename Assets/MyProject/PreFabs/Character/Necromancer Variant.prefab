@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: -600084666, guid: ebc878ab00b4e8945834f83ea40cd9dd, type: 3}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Name
-      value: Necromancer
+      value: Necromancer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Layer
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &464768238
+--- !u!114 &1699812364057545743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,23 +133,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3603170078947632694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc8140ebf93a164ca0dd3fb5d443152, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d6beab3f161d6a47affc36ab9c7311e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentLife: 0
-  maxLife: 10
+  maxLife: 1000
   lifeSlider: {fileID: 0}
   canTakeDamage: 1
   isDeath: 0
-  floatingDmg: {fileID: 6428976056836927005, guid: e8675cab65fe013488feba6b3d614723, type: 3}
-  damageTXT: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
+  floatingDmg: {fileID: 0}
+  damageTXT: {fileID: 0}
   textPos: {x: 0, y: 0.8, z: 0}
   haveDisplayDMG: 1
   anim: {fileID: 2606753131965590697}
-  speed: 3
+  speed: 2
   jumpForce: 0
   canJump: 0
-  canMove: 1
+  canMove: 0
   groundRadius: 0.05
   posPe: {fileID: 4254598293524751787}
   groundLayer:
@@ -160,21 +160,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackRadius: 2
-  attackDPS: 1
+  attackDPS: 0
   attackDamage: 0
   attackIndex: 1
   posAtk: {fileID: 6556766915394012000}
   atkType: 1
   soundEffect: []
   distAgro: 3
-  iaTime: 0.5
-  patrolTime: 2
-  patrolRadius: 1
+  iaTime: 0.3
+  patrolTime: 1
+  patrolRadius: 1.5
   arrowPrefab: {fileID: 0}
   arrowSpeed: 0
-  skull: {fileID: 4735561564646119523, guid: 271f41dbbc7bb0a48ac7032196e527d4, type: 3}
-  skullsQuant: 10
-  enemyPreFab: {fileID: 5732183070404817258, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
+  enemyPreFab: {fileID: 8461299805548028945, guid: 5db4680323ff34741b414e0e7f84ca49, type: 3}
+  skull: {fileID: 0}
+  skullsQuant: 0
 --- !u!4 &4254598293524751787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6810566956639852105, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}

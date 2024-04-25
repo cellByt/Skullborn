@@ -19,6 +19,9 @@ public class Enemy : Character
     public GameObject arrowPrefab;
     public float arrowSpeed;
 
+    [Header("Necromancer Variable")]
+    [SerializeField] private GameObject enemyPreFab;
+
     [Header("Drop Skulls")]
     [SerializeField] private GameObject skull;
     [SerializeField] private int skullsQuant;
@@ -102,11 +105,6 @@ public class Enemy : Character
         }
     }
 
-    private void FlipToPlayer()
-    {
-
-    }
-
     #endregion
 
     #region Archery
@@ -126,15 +124,29 @@ public class Enemy : Character
 
     #endregion
 
-    #region ItemsDrop
+    #region Necromancer
+    public void SummonGoblin()
+    {
+        Instantiate(enemyPreFab, posAtk.position, Quaternion.identity);
+    }
 
     protected override void Death()
     {
         base.Death();
 
-        if(skull != null) DropSkulls();
+        if (skull != null) DropSkulls();
+
+        Invoke("DestroyObject", 0.84f);
     }
 
+    private void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
+    #endregion
+
+    #region ItemsDrop
     private void DropSkulls()
     {
         Instantiate(skull, transform.position, Quaternion.identity);
