@@ -102,6 +102,11 @@ public class Enemy : Character
         }
     }
 
+    private void FlipToPlayer()
+    {
+
+    }
+
     #endregion
 
     #region Archery
@@ -127,7 +132,7 @@ public class Enemy : Character
     {
         base.Death();
 
-        DropSkulls();
+        if(skull != null) DropSkulls();
     }
 
     private void DropSkulls()
