@@ -13,6 +13,7 @@ public class Character : LifeController
     [SerializeField] protected float speed;
     [SerializeField] protected float jumpForce;
     [SerializeField] protected bool canJump;
+    [SerializeField] protected bool canMove;
     [SerializeField] protected float groundRadius;
     [SerializeField] protected Transform posPe;
     [SerializeField] protected LayerMask groundLayer;
@@ -42,6 +43,13 @@ public class Character : LifeController
     {
         rb = GetComponent<Rigidbody2D>();
         audioS = GetComponent<AudioSource>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        canMove = true;
     }
 
     protected virtual void Update()
@@ -115,6 +123,12 @@ public class Character : LifeController
         {
             case AttackType.Melee:
                 MeleeAttack();
+                if (gameObject.tag == "Player")
+                {
+                    direction.x = 0f;
+                    canMove = false;
+                }
+
                 if (audioS != null) PlaySound(0);
                 break;
 

@@ -5,10 +5,13 @@ using TMPro;
 
 public class Player : Character
 {
+
     [Header("Roll Variables")]
     [SerializeField] private float rollForce;
     [SerializeField] private float rollTime;
+    [SerializeField] private float nextRollTime;
     [SerializeField] private bool rolling;
+    [SerializeField] private bool canRoll;
 
     [Header("Combo Variables")]
     [SerializeField] private float nextCombo;
@@ -21,6 +24,14 @@ public class Player : Character
     [SerializeField] TMP_Text skullsText;
     [SerializeField] Vector3 offset;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        canRoll = true;
+        canMove = true;
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -31,7 +42,7 @@ public class Player : Character
 
     private void PlayerInputs()
     {
-        if (rolling) return;
+        if (rolling || !canMove) return;
 
         float input_x = Input.GetAxisRaw("Horizontal");
         direction.x = input_x;
@@ -40,10 +51,14 @@ public class Player : Character
         if (Input.GetButtonDown("Fire1") && OnGround())
         {
             isInCombo = true;
+
             Attack();
             ComboSystem();
+
+
+            Invoke("ReturnToMove", 0.5f);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround()) StartCoroutine(Roll());
+        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll());
     }
 
     #region Movement
@@ -51,6 +66,7 @@ public class Player : Character
     {
         anim.SetTrigger("Roll");
         rolling = true;
+        canRoll = false;
         canTakeDamage = false;
 
         if (facingLeft)
@@ -61,9 +77,19 @@ public class Player : Character
         yield return new WaitForSeconds(rollTime);
 
         direction.x = 0f;
-        rolling = false;
         canTakeDamage = true;
+        rolling = false;
+
+        yield return new WaitForSeconds(nextRollTime);
+        canRoll = true;
     }
+
+    private void ReturnToMove()
+    {
+        canMove = true;
+    }
+
+    #endregion
 
     private void ComboSystem()
     {
@@ -79,7 +105,6 @@ public class Player : Character
         }
     }
 
-    #endregion
 
     public void GainSkulls(int _skulls)
     {
@@ -90,6 +115,7 @@ public class Player : Character
         GameObject _text = Instantiate(skullsPreFab, _newPos , Quaternion.identity);
         Destroy(_text.gameObject, 0.3f);
     }
+
 
     #region Death
     protected override void Death()

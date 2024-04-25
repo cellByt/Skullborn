@@ -282,6 +282,7 @@ MonoBehaviour:
   speed: 3
   jumpForce: 0
   canJump: 0
+  canMove: 0
   groundRadius: 0
   posPe: {fileID: 0}
   groundLayer:
@@ -1201,6 +1202,7 @@ MonoBehaviour:
   speed: 6.5
   jumpForce: 13
   canJump: 0
+  canMove: 0
   groundRadius: 0.1
   posPe: {fileID: 4474070463125738909}
   groundLayer:
@@ -1219,16 +1221,20 @@ MonoBehaviour:
   soundEffect:
   - {fileID: 8300000, guid: e118a76453f4ce147bf4553d647a10f0, type: 3}
   - {fileID: 8300000, guid: 467ecf9c8acc65d4e8c6df6f39269a91, type: 3}
+  defaultFriction: 0
+  physic: {fileID: 6200000, guid: d3defa28e7efbc74db3d79d80b3a96bd, type: 2}
   rollForce: 1.3
   rollTime: 0.5
+  nextRollTime: 4
   rolling: 0
+  canRoll: 1
   nextCombo: 1.5
   comboRate: 0
   isInCombo: 0
   skulls: 0
   skullsPreFab: {fileID: 3315914328301771308, guid: 906b1c48b8e25fe47abc6d78aabddc0f, type: 3}
   skullsText: {fileID: 1445274726602269049, guid: 906b1c48b8e25fe47abc6d78aabddc0f, type: 3}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 8, y: 3, z: 0}
 --- !u!50 &613448001
 Rigidbody2D:
   serializedVersion: 4
@@ -4378,6 +4384,7 @@ MonoBehaviour:
   speed: 3
   jumpForce: 0
   canJump: 0
+  canMove: 0
   groundRadius: 0.5
   posPe: {fileID: 157353599318984272}
   groundLayer:
