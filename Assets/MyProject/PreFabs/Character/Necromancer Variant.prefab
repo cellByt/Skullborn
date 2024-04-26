@@ -21,16 +21,16 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 42e62911613c359429c97a93c5f2a5f8, type: 2}
     - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Size.y
-      value: 1.4376202
+      value: 2.029358
       objectReference: {fileID: 0}
     - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Offset.y
-      value: -0.85110664
+      value: -1.1920471
       objectReference: {fileID: 0}
     - target: {fileID: 6307757554994109221, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -600084666, guid: ebc878ab00b4e8945834f83ea40cd9dd, type: 3}
+      objectReference: {fileID: 1114364895, guid: ebc878ab00b4e8945834f83ea40cd9dd, type: 3}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Name
       value: Necromancer Variant
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150869, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -524.95557
+      value: -524.411
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150869, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810566956639852105, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.558
+      value: -2.154
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
@@ -141,8 +141,8 @@ MonoBehaviour:
   lifeSlider: {fileID: 0}
   canTakeDamage: 1
   isDeath: 0
-  floatingDmg: {fileID: 0}
-  damageTXT: {fileID: 0}
+  floatingDmg: {fileID: 6428976056836927005, guid: e8675cab65fe013488feba6b3d614723, type: 3}
+  damageTXT: {fileID: 7147938968619046216, guid: e8675cab65fe013488feba6b3d614723, type: 3}
   textPos: {x: 0, y: 0.8, z: 0}
   haveDisplayDMG: 1
   anim: {fileID: 2606753131965590697}
@@ -160,7 +160,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackRadius: 2
-  attackDPS: 0
+  attackDPS: 1
   attackDamage: 0
   attackIndex: 1
   posAtk: {fileID: 6556766915394012000}
