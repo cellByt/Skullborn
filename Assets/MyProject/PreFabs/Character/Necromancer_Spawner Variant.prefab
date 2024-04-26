@@ -15,9 +15,13 @@ PrefabInstance:
       propertyPath: skullsQuant
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 157353599318984273, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5732183070404817258, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
       propertyPath: m_Name
-      value: Necromancer_Spawner
+      value: Necromancer_Spawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5732183070404817259, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
       propertyPath: m_RootOrder

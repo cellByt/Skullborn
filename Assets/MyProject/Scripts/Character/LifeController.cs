@@ -11,7 +11,9 @@ public class LifeController : MonoBehaviour
     [Header("Life Variables")]
     [SerializeField] protected float currentLife;
     [SerializeField] protected float maxLife;
-    [SerializeField] private Slider lifeSlider;
+    [SerializeField] Image[] hearts;
+    [SerializeField] Sprite fullHeart;
+    [SerializeField] Sprite emptyHeart;
     [SerializeField] protected bool canTakeDamage;
     public bool isDeath;
 
@@ -25,12 +27,6 @@ public class LifeController : MonoBehaviour
     {
         canTakeDamage = true;
         currentLife = maxLife;
-
-        if (lifeSlider != null)
-        {
-            lifeSlider.maxValue = maxLife;
-            lifeSlider.value = currentLife;
-        }
     }
 
     protected virtual void Death()
@@ -38,13 +34,13 @@ public class LifeController : MonoBehaviour
         isDeath = true;
     }
 
+    #region Lost/Gain Life
     public void TakeDamage(float _damage)
     {
         if (isDeath || !canTakeDamage) return;
 
         Debug.Log(_damage);
         currentLife = Mathf.Max(currentLife - _damage, 0f);
-        if (lifeSlider != null) StartCoroutine(UpdateLifeSlider());
         if (haveDisplayDMG) FloatingDamage(_damage);
 
         if (currentLife == 0) Death();
@@ -57,22 +53,30 @@ public class LifeController : MonoBehaviour
         currentLife = Mathf.Min(currentLife + _life, maxLife);
     }
 
-    private IEnumerator UpdateLifeSlider()
+    #endregion
+
+    protected void UpdateHearts()
     {
-        float _preLife = lifeSlider.value;
-        float _duration = 0.5f;
-        float _time = 0f;
-
-        while (_time < _duration)
+        for (int i = 0; i < hearts.Length; i++)
         {
-            _time += Time.deltaTime;
-            float _lerpSpeed = Mathf.Clamp01(_time / _duration);
-            lifeSlider.value = Mathf.Lerp(_preLife, currentLife, _lerpSpeed);
+            if (i < currentLife)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
 
-            yield return null;
+            if (i < maxLife)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
         }
-
-        lifeSlider.value = currentLife;
     }
 
     private void FloatingDamage(float _damage)

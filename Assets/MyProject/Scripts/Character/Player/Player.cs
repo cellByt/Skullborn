@@ -40,6 +40,7 @@ public class Player : Character
     {
         base.Update();
 
+        UpdateHearts();
         PlayerInputs();
         comboRate += Time.deltaTime;
     }
@@ -53,7 +54,7 @@ public class Player : Character
 
         if (Input.GetButtonDown("Jump") && OnGround()) canJump = true;
 
-        if (Input.GetButtonDown("Fire1") && OnGround())
+        if (Input.GetButtonDown("Fire1") && OnGround() && !ShopSytem.instance.shopIsOpen)
         {
             isInCombo = true;
 
@@ -70,7 +71,10 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            healingPots--;
+            healingPots = Mathf.Max(healingPots--, 0);
+
+            if (healingPots == 0) return;
+
             GainLife(100);
             ShopSytem.instance.healingText.text = healingPots.ToString();
         }

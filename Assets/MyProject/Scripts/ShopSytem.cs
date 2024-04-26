@@ -11,6 +11,7 @@ public class ShopSytem : MonoBehaviour
     [Header("Shop Variables")]
     public GameObject shopIndicator;
     public GameObject shopPanel;
+    [SerializeField] private GameObject playerHUD;
     public TMP_Text healingText;
     [SerializeField] private Button[] shopButtons;
     public bool canOpenShop;
@@ -59,6 +60,7 @@ public class ShopSytem : MonoBehaviour
             shopIndicator.SetActive(false);
             Cursor.visible = true;
             shopIsOpen = true;
+            playerHUD.SetActive(false);
         }
         else if (shopIsOpen)
         {
@@ -66,6 +68,7 @@ public class ShopSytem : MonoBehaviour
             shopIndicator.SetActive(false);
             Cursor.visible = false;
             shopIsOpen = false;
+            playerHUD.SetActive(true);
         }
     }
 
@@ -81,7 +84,7 @@ public class ShopSytem : MonoBehaviour
 
     private void BuyHealingPot()
     {
-        if (player.money >= 16)
+        if (player.money >= 16 && player.healingPots < 6)
         {
             player.money = Mathf.Max(player.money - 16, 0);
             player.healingPots++;
