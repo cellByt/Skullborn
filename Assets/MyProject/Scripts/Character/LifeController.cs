@@ -50,6 +50,13 @@ public class LifeController : MonoBehaviour
         if (currentLife == 0) Death();
     }
 
+    public void GainLife(float _life)
+    {
+        if (isDeath) return;
+
+        currentLife = Mathf.Min(currentLife + _life, maxLife);
+    }
+
     private IEnumerator UpdateLifeSlider()
     {
         float _preLife = lifeSlider.value;

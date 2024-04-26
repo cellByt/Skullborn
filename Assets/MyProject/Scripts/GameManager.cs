@@ -46,13 +46,15 @@ public class GameManager : MonoBehaviour
     #region Screens
     public void DeathScreen()
     {
+        ShopSytem.instance.shopPanel.SetActive(false);
+        pauseScreen.SetActive(false);
         deathScreen.SetActive(true);
         Cursor.visible = true;
     }
 
     private void PauseScreen()
     {
-        if (!onPause)
+        if (!onPause && !ShopSytem.instance.shopIsOpen && !player.isDeath)
         {
             pauseScreen.SetActive(true);
             Cursor.visible = true;

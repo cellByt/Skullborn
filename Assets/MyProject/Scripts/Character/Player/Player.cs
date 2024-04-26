@@ -19,10 +19,14 @@ public class Player : Character
     [SerializeField] private bool isInCombo;
 
     [Header("Skulls Variables")]
-    [SerializeField] private int skulls;
+    public int skulls;
     [SerializeField] GameObject skullsPreFab;
     [SerializeField] TMP_Text skullsText;
     [SerializeField] Vector3 offset;
+
+    [Header("Change Status Variables")]
+    public int money;
+    public int healingPots;
 
     protected override void Start()
     {
@@ -48,6 +52,7 @@ public class Player : Character
         direction.x = input_x;
 
         if (Input.GetButtonDown("Jump") && OnGround()) canJump = true;
+
         if (Input.GetButtonDown("Fire1") && OnGround())
         {
             isInCombo = true;
@@ -58,7 +63,17 @@ public class Player : Character
 
             Invoke("ReturnToMove", 0.5f);
         }
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll());
+
+        if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            healingPots--;
+            GainLife(100);
+            ShopSytem.instance.healingText.text = healingPots.ToString();
+        }
     }
 
     #region Movement
@@ -105,7 +120,7 @@ public class Player : Character
         }
     }
 
-
+    #region SkullsSystem
     public void GainSkulls(int _skulls)
     {
         skulls += _skulls;
@@ -116,6 +131,18 @@ public class Player : Character
         Destroy(_text.gameObject, 0.3f);
     }
 
+    public void LostSkulls(int _skulls)
+    {
+        skulls = Mathf.Max(skulls - _skulls, 0);
+
+        skullsText.text = "- " + _skulls.ToString();
+
+        Vector3 _newPos = transform.position + offset;
+        GameObject _text = Instantiate(skullsPreFab, _newPos, Quaternion.identity);
+        Destroy(_text.gameObject, 0.3f);
+    }
+
+    #endregion
 
     #region Death
     protected override void Death()
