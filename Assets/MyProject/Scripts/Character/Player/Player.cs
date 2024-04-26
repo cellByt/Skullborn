@@ -20,6 +20,7 @@ public class Player : Character
 
     [Header("Skulls Variables")]
     public int skulls;
+    [SerializeField] TMP_Text skullsQuant;
     [SerializeField] GameObject skullsPreFab;
     [SerializeField] TMP_Text skullsText;
     [SerializeField] Vector3 offset;
@@ -128,6 +129,8 @@ public class Player : Character
     public void GainSkulls(int _skulls)
     {
         skulls += _skulls;
+
+        skullsQuant.text = skulls.ToString();
         skullsText.text = "+ " + _skulls.ToString();
 
         Vector3 _newPos = transform.position + offset;
@@ -139,6 +142,7 @@ public class Player : Character
     {
         skulls = Mathf.Max(skulls - _skulls, 0);
 
+        skullsQuant.text = skulls.ToString();
         skullsText.text = "- " + _skulls.ToString();
 
         Vector3 _newPos = transform.position + offset;
