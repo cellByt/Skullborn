@@ -11,8 +11,8 @@ public class ShopSytem : MonoBehaviour
     [Header("Shop Variables")]
     public GameObject shopIndicator;
     public GameObject shopPanel;
-    [SerializeField] private GameObject playerHUD;
     public TMP_Text healingText;
+    [SerializeField] private TMP_Text coinsText;
     [SerializeField] private Button[] shopButtons;
     public bool canOpenShop;
     public bool shopIsOpen;
@@ -60,7 +60,6 @@ public class ShopSytem : MonoBehaviour
             shopIndicator.SetActive(false);
             Cursor.visible = true;
             shopIsOpen = true;
-            playerHUD.SetActive(false);
         }
         else if (shopIsOpen)
         {
@@ -68,7 +67,6 @@ public class ShopSytem : MonoBehaviour
             shopIndicator.SetActive(false);
             Cursor.visible = false;
             shopIsOpen = false;
-            playerHUD.SetActive(true);
         }
     }
 
@@ -78,6 +76,7 @@ public class ShopSytem : MonoBehaviour
         {
             player.LostSkulls(1);
             player.money += 2;
+            coinsText.text = player.money.ToString();
             Debug.Log("Skull sell");
         }
     }
@@ -89,6 +88,7 @@ public class ShopSytem : MonoBehaviour
             player.money = Mathf.Max(player.money - 16, 0);
             player.healingPots++;
             healingText.text = player.healingPots.ToString();
+            coinsText.text = player.money.ToString();
             Debug.Log("Buy healing");
         }
     }
@@ -98,6 +98,7 @@ public class ShopSytem : MonoBehaviour
         if (player.money >= 50)
         {
             player.money = Mathf.Max(player.money - 50, 0);
+            coinsText.text = player.money.ToString();
             player.attackDamage += 5;
             Debug.Log("Buy damage");
         }

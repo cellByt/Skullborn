@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DamageArrow : MonoBehaviour
+public class AnimationEvents : MonoBehaviour
 {
     [SerializeField] UnityEvent rangeAttack;
     [SerializeField] UnityEvent necromancerAttack;

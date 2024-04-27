@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Necromancer
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150869, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_RootOrder
@@ -138,7 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 1000
-  lifeSlider: {fileID: 0}
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
   canTakeDamage: 1
   isDeath: 0
   floatingDmg: {fileID: 6428976056836927005, guid: e8675cab65fe013488feba6b3d614723, type: 3}

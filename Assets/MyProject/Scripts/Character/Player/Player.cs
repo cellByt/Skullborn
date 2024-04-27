@@ -21,7 +21,6 @@ public class Player : Character
     [Header("Skulls Variables")]
     public int skulls;
     [SerializeField] TMP_Text skullsQuant;
-    [SerializeField] GameObject skullsPreFab;
     [SerializeField] TMP_Text skullsText;
     [SerializeField] Vector3 offset;
 
@@ -35,6 +34,8 @@ public class Player : Character
 
         canRoll = true;
         canMove = true;
+
+        skullsText.gameObject.SetActive(false);
     }
 
     protected override void Update()
@@ -44,6 +45,13 @@ public class Player : Character
         UpdateHearts();
         PlayerInputs();
         comboRate += Time.deltaTime;
+
+        if (direction.x < 0 && !facingLeft && !isDeath || direction.x > 0 && facingLeft && !isDeath)
+        {
+            Flip();
+            CameraFollow.instance.offset.x *= -1f;
+        }
+
     }
 
     private void PlayerInputs()
@@ -70,13 +78,11 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0)
         {
-            healingPots = Mathf.Max(healingPots--, 0);
+            healingPots = Mathf.Max(healingPots - 1, 0);
 
-            if (healingPots == 0) return;
-
-            GainLife(100);
+            GainLife(1);
             ShopSytem.instance.healingText.text = healingPots.ToString();
         }
     }
@@ -130,24 +136,31 @@ public class Player : Character
     {
         skulls += _skulls;
 
+        skullsText.gameObject.SetActive(true);
+
+        skullsText.color = Color.green;
         skullsQuant.text = skulls.ToString();
         skullsText.text = "+ " + _skulls.ToString();
 
-        Vector3 _newPos = transform.position + offset;
-        GameObject _text = Instantiate(skullsPreFab, _newPos , Quaternion.identity);
-        Destroy(_text.gameObject, 0.3f);
+        Invoke("DisableText", 0.5f);
     }
 
     public void LostSkulls(int _skulls)
     {
         skulls = Mathf.Max(skulls - _skulls, 0);
 
+        skullsText.gameObject.SetActive(true);
+
+        skullsText.color = Color.red;
         skullsQuant.text = skulls.ToString();
         skullsText.text = "- " + _skulls.ToString();
 
-        Vector3 _newPos = transform.position + offset;
-        GameObject _text = Instantiate(skullsPreFab, _newPos, Quaternion.identity);
-        Destroy(_text.gameObject, 0.3f);
+        Invoke("DisableText", 0.5f);
+    }
+
+    private void DisableText()
+    {
+        skullsText.gameObject.SetActive(false);
     }
 
     #endregion

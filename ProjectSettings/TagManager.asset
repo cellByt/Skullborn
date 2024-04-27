@@ -8,6 +8,7 @@ TagManager:
   - BloodEffect
   - Archery
   - Skull
+  - Necromancer
   layers:
   - Default
   - TransparentFX

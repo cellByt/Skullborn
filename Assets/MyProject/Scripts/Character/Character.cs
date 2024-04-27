@@ -55,12 +55,6 @@ public class Character : LifeController
     protected virtual void Update()
     {
         Anim();
-
-        if (direction.x < 0 && !facingLeft && !isDeath || direction.x > 0 && facingLeft && !isDeath)
-        {
-            Flip();
-            if (gameObject.tag == "Player") CameraFollow.instance.offset.x *= -1f;
-        }
     }
 
     protected virtual void FixedUpdate()

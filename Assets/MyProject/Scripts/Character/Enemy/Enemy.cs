@@ -45,6 +45,7 @@ public class Enemy : Character
     private void IA()
     {
         if (isDeath) return;
+
         if (!player || player.isDeath)
         {
             Patrol();
@@ -56,6 +57,7 @@ public class Enemy : Character
             if (DistanceToPlayer() <= attackRadius)
             {
                 direction.x = 0f;
+                FlipToPlayer();
                 Attack();
             }
             else FollowPlayer();
@@ -80,9 +82,15 @@ public class Enemy : Character
             destiny.x = initialPos_X + Random.Range(-patrolRadius, patrolRadius);
 
             if (destiny.x < transform.position.x)
+            {
                 direction.x = -1;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
             else if (destiny.x > transform.position.x)
+            {
                 direction.x = 1;
+                transform.localScale = new Vector3(1, 1, 1);
+            }
             else
                 direction.x = 0;
         }
@@ -95,14 +103,32 @@ public class Enemy : Character
             direction.x = 0f;
         else if (player.gameObject.transform.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
             direction.x = 1f;
         }
         else if (player.gameObject.transform.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
             direction.x = -1f;
         }
+    }
+
+    private void FlipToPlayer()
+    {
+        Vector3 _localScale = transform.localScale;
+
+        float distanceToPlayer = player.transform.position.x - transform.position.x;
+
+        if (distanceToPlayer > 0.1f)
+        {
+            _localScale.x = Mathf.Abs(_localScale.x);
+            facingLeft = false;
+        }
+        else if (distanceToPlayer < -0.1f)
+        {
+            _localScale.x = -Mathf.Abs(_localScale.x);
+            facingLeft = true;
+        }
+
+        transform.localScale = _localScale;
     }
 
     #endregion
@@ -136,7 +162,7 @@ public class Enemy : Character
 
         if (skull != null) DropSkulls();
 
-        Invoke("DestroyObject", 0.84f);
+        if (gameObject.tag == "Necromancer") Invoke("DestroyObject", 0.84f);
     }
 
     private void DestroyObject()

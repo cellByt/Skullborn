@@ -20,12 +20,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: b5811d878a9bcaa4abaf03b190535ec7, type: 2}
     - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.46099854
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Size.y
-      value: 1.1443139
+      value: 1.6428223
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.23007202
       objectReference: {fileID: 0}
     - target: {fileID: 6060669371786593460, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Offset.y
-      value: -0.24724573
+      value: -0.27838135
       objectReference: {fileID: 0}
     - target: {fileID: 6307757554994109221, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Sprite
@@ -33,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 1290532464073988732, guid: f84c06efa9991bd49b5553f54f400348, type: 3}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Name
-      value: MeleeEnemy
+      value: MeleeEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6307757555602150868, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_Layer
@@ -88,8 +96,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6810566956639852105, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810566956639852105, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.82
+      value: -1.088
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 945750890767827908, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
@@ -144,7 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 999
-  lifeSlider: {fileID: 0}
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
   canTakeDamage: 0
   isDeath: 0
   floatingDmg: {fileID: 6428976056836927005, guid: e8675cab65fe013488feba6b3d614723, type: 3}
@@ -178,6 +192,7 @@ MonoBehaviour:
   patrolRadius: 2
   arrowPrefab: {fileID: 0}
   arrowSpeed: 0
+  enemyPreFab: {fileID: 0}
   skull: {fileID: 4735561564646119523, guid: 271f41dbbc7bb0a48ac7032196e527d4, type: 3}
   skullsQuant: 3
 --- !u!1 &5732183071004475289 stripped
