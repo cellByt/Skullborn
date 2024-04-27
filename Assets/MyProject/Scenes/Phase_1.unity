@@ -5309,7 +5309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLife: 0
-  maxLife: 100
+  maxLife: 6
   hearts:
   - {fileID: 1607720005}
   - {fileID: 1262216729}
@@ -6961,9 +6961,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  jumpPlayer:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &928026434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7111,9 +7108,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   necromancerAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  jumpPlayer:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &949267730
@@ -13971,6 +13965,14 @@ PrefabInstance:
     - target: {fileID: 1699812364057545743, guid: f1fa3e6f380acd649adfcaa175ec4c31, type: 3}
       propertyPath: maxLife
       value: 1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699812364057545743, guid: f1fa3e6f380acd649adfcaa175ec4c31, type: 3}
+      propertyPath: distAgro
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699812364057545743, guid: f1fa3e6f380acd649adfcaa175ec4c31, type: 3}
+      propertyPath: attackRadius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3603170078339328199, guid: f1fa3e6f380acd649adfcaa175ec4c31, type: 3}
       propertyPath: m_Sprite
@@ -37038,7 +37040,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4573107240018817154, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.658
+      value: 0.354
       objectReference: {fileID: 0}
     - target: {fileID: 4573107240018817154, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37195,14 +37197,14 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  attackRadius: 0.8
+  attackRadius: 2
   attackDPS: 1
   attackDamage: 1
   attackIndex: 0
   posAtk: {fileID: 157353599318984271}
   atkType: 0
   soundEffect: []
-  distAgro: 2
+  distAgro: 3
   iaTime: 0.3
   patrolTime: 1
   patrolRadius: 2
