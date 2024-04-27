@@ -182,7 +182,7 @@ public class Character : LifeController
 
     #endregion
 
-    protected override void Death()
+    public override void Death()
     {
         base.Death();
 

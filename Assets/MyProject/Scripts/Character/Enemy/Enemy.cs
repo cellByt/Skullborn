@@ -156,7 +156,7 @@ public class Enemy : Character
         Instantiate(enemyPreFab, posAtk.position, Quaternion.identity);
     }
 
-    protected override void Death()
+    public override void Death()
     {
         base.Death();
 

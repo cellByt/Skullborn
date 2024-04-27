@@ -10,7 +10,7 @@ public class Player : Character
     [SerializeField] private float rollForce;
     [SerializeField] private float rollTime;
     [SerializeField] private float nextRollTime;
-    [SerializeField] private bool rolling;
+    public bool rolling;
     [SerializeField] private bool canRoll;
 
     [Header("Combo Variables")]
@@ -121,7 +121,7 @@ public class Player : Character
     {
         if (isInCombo)
         {
-            if (attackIndex > 2 || comboRate >= nextCombo)
+            if (attackIndex > 3 || comboRate >= nextCombo)
             {
                 isInCombo = false;
                 comboRate = 0f;
@@ -166,7 +166,7 @@ public class Player : Character
     #endregion
 
     #region Death
-    protected override void Death()
+    public override void Death()
     {
         base.Death();
 

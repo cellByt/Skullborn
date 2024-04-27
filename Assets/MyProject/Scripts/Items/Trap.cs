@@ -10,7 +10,7 @@ public class Trap : MonoBehaviour
     {
         if (_other.CompareTag("Player") || _other.CompareTag("Enemy"))
         {
-            _other.GetComponent<Character>().TakeDamage(damageValue);
+            _other.GetComponent<Character>().Death();
         }
     }
 }

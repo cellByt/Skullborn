@@ -29,7 +29,7 @@ public class LifeController : MonoBehaviour
         currentLife = maxLife;
     }
 
-    protected virtual void Death()
+    public virtual void Death()
     {
         isDeath = true;
     }
