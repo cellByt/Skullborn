@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class LifeController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LifeController : MonoBehaviour
     [Header("Life Variables")]
     [SerializeField] protected float currentLife;
     [SerializeField] protected float maxLife;
+    [SerializeField] private Animator heartAnim;
     [SerializeField] Image[] hearts;
     [SerializeField] Sprite fullHeart;
     [SerializeField] Sprite emptyHeart;
@@ -27,6 +29,8 @@ public class LifeController : MonoBehaviour
     {
         canTakeDamage = true;
         currentLife = maxLife;
+
+        heartAnim = GameObject.FindGameObjectWithTag("Heart").GetComponent<Animator>();
     }
 
     public virtual void Death()
@@ -41,6 +45,8 @@ public class LifeController : MonoBehaviour
 
         currentLife = Mathf.Max(currentLife - _damage, 0f);
 
+        if (gameObject.tag == "Player") heartAnim.SetTrigger("Damage");
+
         if (haveDisplayDMG) FloatingDamage(_damage);
 
         if (currentLife == 0) Death();
@@ -51,6 +57,8 @@ public class LifeController : MonoBehaviour
         if (isDeath) return;
 
         currentLife = Mathf.Min(currentLife + _life, maxLife);
+        if (gameObject.tag == "Player") heartAnim.SetTrigger("Heal");
+
     }
 
     #endregion

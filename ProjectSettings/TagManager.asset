@@ -9,6 +9,7 @@ TagManager:
   - Archery
   - Skull
   - Necromancer
+  - Heart
   layers:
   - Default
   - TransparentFX
