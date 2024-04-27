@@ -180,6 +180,13 @@ public class Character : LifeController
         anim.SetBool("Death", isDeath);
     }
 
+    public override void TakeDamage(float _damage)
+    {
+        base.TakeDamage(_damage);
+
+        anim.SetTrigger("Hit");
+    }
+
     #endregion
 
     public override void Death()

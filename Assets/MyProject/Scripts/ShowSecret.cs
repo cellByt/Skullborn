@@ -24,7 +24,7 @@ public class ShowSecret : MonoBehaviour
     {
         if (_other.gameObject.CompareTag("Player"))
         {
-            secretText.gameObject.SetActive(false);
+            secretText.gameObject.GetComponent<Animator>().SetTrigger("Close");
         }
     }
 }

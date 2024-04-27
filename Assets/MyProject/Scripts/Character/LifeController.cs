@@ -35,11 +35,12 @@ public class LifeController : MonoBehaviour
     }
 
     #region Lost/Gain Life
-    public void TakeDamage(float _damage)
+    public virtual void TakeDamage(float _damage)
     {
         if (isDeath || !canTakeDamage) return;
 
         currentLife = Mathf.Max(currentLife - _damage, 0f);
+
         if (haveDisplayDMG) FloatingDamage(_damage);
 
         if (currentLife == 0) Death();
