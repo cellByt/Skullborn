@@ -80,9 +80,15 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0)
         {
+            canMove = false;
+            direction.x = 0f;
+
             healingPots = Mathf.Max(healingPots - 1, 0);
 
-            GainLife(1);
+            anim.SetTrigger("UseItem");
+            Invoke("ReturnToMove", 0.38f);
+
+            GainLife(2);
             ShopSytem.instance.healingText.text = healingPots.ToString();
         }
     }

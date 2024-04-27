@@ -40,7 +40,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen)
+        {
             PauseScreen();
+            Cursor.visible = !Cursor.visible;
+        }
     }
 
     #region Screens
@@ -57,14 +60,12 @@ public class GameManager : MonoBehaviour
         if (!onPause)
         {
             pauseScreen.SetActive(true);
-            Cursor.visible = true;
             Time.timeScale = 0f;
             onPause = true;
         }
         else
         {
             pauseScreen.GetComponent<Animator>().SetTrigger("Close");
-            Cursor.visible = false;
             Time.timeScale = 1f;
             onPause = false;
         }
