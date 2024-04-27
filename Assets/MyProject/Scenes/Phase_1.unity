@@ -3489,8 +3489,6 @@ RectTransform:
   m_Children:
   - {fileID: 411789605}
   - {fileID: 1173375308}
-  - {fileID: 1109178410}
-  - {fileID: 1331858050}
   - {fileID: 1391592562}
   m_Father: {fileID: 588848750}
   m_RootOrder: 0
@@ -4595,13 +4593,14 @@ GameObject:
   - component: {fileID: 588848752}
   - component: {fileID: 588848751}
   - component: {fileID: 588848753}
+  - component: {fileID: 588848754}
   m_Layer: 5
   m_Name: ShopScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &588848750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4682,6 +4681,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &588848754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588848749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b39e6f0f600441a39dbeb5c3a6932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &591360716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5200783512062404882, guid: 5e8d23661846f4140b8492397ab54a94, type: 3}
@@ -8445,13 +8456,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 457341240}
-  m_RootOrder: 2
+  m_Children:
+  - {fileID: 1331858050}
+  m_Father: {fileID: 1173375308}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: -220}
+  m_AnchoredPosition: {x: -10, y: -173}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109178411
@@ -8968,7 +8980,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1109178410}
   m_Father: {fileID: 457341240}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9213,6 +9226,7 @@ GameObject:
   - component: {fileID: 1199479870}
   - component: {fileID: 1199479872}
   - component: {fileID: 1199479871}
+  - component: {fileID: 1199479873}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -9280,6 +9294,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199479869}
   m_CullTransparentMesh: 1
+--- !u!95 &1199479873
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199479869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b80034401bea4b4e96ad6e873c201c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1204789540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 41d4294f662241e458641e7328f39628, type: 3}
@@ -10872,13 +10907,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 457341240}
-  m_RootOrder: 3
+  m_Father: {fileID: 1109178410}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -410, y: -220}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 1.0999985, y: -1.0999985}
+  m_SizeDelta: {x: -89.9236, y: -89.9236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331858051
 MonoBehaviour:
@@ -11180,7 +11215,7 @@ RectTransform:
   - {fileID: 1243817460}
   - {fileID: 1225433239}
   m_Father: {fileID: 457341240}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13804,13 +13839,15 @@ GameObject:
   - component: {fileID: 1747065667}
   - component: {fileID: 1747065669}
   - component: {fileID: 1747065668}
+  - component: {fileID: 1747065670}
+  - component: {fileID: 1747065671}
   m_Layer: 5
   m_Name: PauseScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1747065667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13872,6 +13909,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747065666}
   m_CullTransparentMesh: 1
+--- !u!95 &1747065670
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747065666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b80034401bea4b4e96ad6e873c201c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1747065671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747065666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b39e6f0f600441a39dbeb5c3a6932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1750618063
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -64,7 +64,7 @@ public class ShopSytem : MonoBehaviour
         }
         else if (shopIsOpen)
         {
-            shopPanel.SetActive(false);
+            shopPanel.GetComponent<Animator>().SetTrigger("Close");
             shopIndicator.SetActive(false);
             Cursor.visible = false;
             shopIsOpen = false;

@@ -39,7 +39,6 @@ public class LifeController : MonoBehaviour
     {
         if (isDeath || !canTakeDamage) return;
 
-        Debug.Log(_damage);
         currentLife = Mathf.Max(currentLife - _damage, 0f);
         if (haveDisplayDMG) FloatingDamage(_damage);
 

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-        player = GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         Cursor.visible = false;
 
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen)
             PauseScreen();
     }
 
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void PauseScreen()
     {
-        if (!onPause && !ShopSytem.instance.shopIsOpen && !player.isDeath)
+        if (!onPause)
         {
             pauseScreen.SetActive(true);
             Cursor.visible = true;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            pauseScreen.SetActive(false);
+            pauseScreen.GetComponent<Animator>().SetTrigger("Close");
             Cursor.visible = false;
             Time.timeScale = 1f;
             onPause = false;
@@ -73,9 +73,9 @@ public class GameManager : MonoBehaviour
 
     private void Resume()
     {
-        Time.timeScale = 1f;
-        pauseScreen.SetActive(false);
+        pauseScreen.GetComponent<Animator>().SetTrigger("Close");
         Cursor.visible = false;
+        Time.timeScale = 1f;
         onPause = false;
     }
 
