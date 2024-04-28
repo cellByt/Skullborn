@@ -5399,6 +5399,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e118a76453f4ce147bf4553d647a10f0, type: 3}
   - {fileID: 8300000, guid: 467ecf9c8acc65d4e8c6df6f39269a91, type: 3}
   - {fileID: 8300000, guid: 4d689ae3cb89e454fb1caca973cc758c, type: 3}
+  - {fileID: 8300000, guid: 50dd045714a395b489bf62e0e8e342e4, type: 3}
   rollForce: 1.3
   rollTime: 0.5
   nextRollTime: 2
@@ -5446,7 +5447,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34703,7 +34704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.7, y: 1.3}
+  m_AnchoredPosition: {x: -4, y: 1.3}
   m_SizeDelta: {x: 14.947, y: 27.6788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861845986

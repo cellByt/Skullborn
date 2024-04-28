@@ -87,6 +87,7 @@ public class Player : Character
 
             healingPots = Mathf.Max(healingPots - 1, 0);
 
+            PlaySound(3);
             anim.SetTrigger("UseItem");
             Invoke("ReturnToMove", 0.38f);
 
