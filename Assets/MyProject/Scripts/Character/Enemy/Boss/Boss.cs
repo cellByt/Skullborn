@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : Enemy
 {
@@ -15,6 +16,12 @@ public class Boss : Enemy
     public bool isPaused;
     public bool onFight;
 
+    [Header("Life Bar")]
+    [SerializeField] private GameObject lifeBar;
+    [SerializeField] private Slider lifeBarSlider;
+    [SerializeField] private Slider smoothLifeBar;
+    [SerializeField] private float smoothSpeed;
+
     private AttackType currentState = AttackType.Melee;
 
     protected override void Start()
@@ -23,8 +30,19 @@ public class Boss : Enemy
 
         isPaused = true;
         defaultAtkDps = attackDPS;
+
+        lifeBarSlider.maxValue = maxLife;
+        smoothLifeBar.maxValue = maxLife;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        UpdateLifeBar();
+    }
+
+    #region IA
     protected override void IA()
     {
         if (!player || player.isDeath || isPaused) return;
@@ -68,7 +86,9 @@ public class Boss : Enemy
         isPaused = false;
         currentHits = 0;
     }
+    #endregion
 
+    #region Attacks
     public void LaunchSword()
     {
         GameObject _sword = Instantiate(arrowPrefab, rangePosAtk.position, Quaternion.identity);
@@ -77,10 +97,44 @@ public class Boss : Enemy
         Destroy(_sword, 3f);
     }
 
+    #endregion
+
+    #region LifeBar
+    private void UpdateLifeBar()
+    {
+        if (!onFight) lifeBar.SetActive(false);
+        else lifeBar.SetActive(true);
+
+        if (lifeBarSlider.value != currentLife)
+        {
+            lifeBarSlider.value = currentLife;
+        }
+
+        if (smoothLifeBar.value != currentLife)
+        {
+            smoothLifeBar.value = Mathf.Lerp(smoothLifeBar.value, currentLife, smoothSpeed);
+        }
+    }
+
+    #endregion
+
+    #region Death
+    public override void Death()
+    {
+        base.Death();
+
+        onFight = false;
+    }
+
+    #endregion
+
+    #region Anim
     protected override void Anim()
     {
         base.Anim();
 
         anim.SetBool("Paused", isPaused);
     }
+
+    #endregion
 }

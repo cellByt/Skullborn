@@ -111,7 +111,7 @@ public class Enemy : Character
         }
     }
 
-    private void FlipToPlayer()
+    protected void FlipToPlayer()
     {
         Vector3 _localScale = transform.localScale;
 
