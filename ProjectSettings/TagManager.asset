@@ -10,6 +10,7 @@ TagManager:
   - Skull
   - Necromancer
   - Heart
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -185,7 +186,7 @@ public class Character : LifeController
         base.TakeDamage(_damage);
 
         if (audioS != null) PlaySound(2);
-        anim.SetTrigger("Hit");
+        if (gameObject.tag != "Boss") anim.SetTrigger("Hit");
     }
 
     #endregion

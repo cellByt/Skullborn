@@ -6,8 +6,13 @@ public class Boss : Enemy
 {
     [Header("Boss Variables")]
     [SerializeField] private Transform rangePosAtk;
-    [SerializeField] private float rangeAtkDPS;
+    [SerializeField] private float minRangeAtkDPS;
+    [SerializeField] private float maxRangeAtkDPS;
     [SerializeField] private float defaultAtkDps;
+    [SerializeField] private int hitsToPause;
+    [SerializeField] private int currentHits;
+    [SerializeField] private float bossPauseTime;
+    [SerializeField] private bool isPaused;
 
     private AttackType currentState = AttackType.Melee;
 
@@ -15,19 +20,22 @@ public class Boss : Enemy
     {
         base.Start();
 
+        isPaused = false;
         defaultAtkDps = attackDPS;
     }
 
     protected override void IA()
     {
+        if (!player || player.isDeath || isPaused) return;
+
         if ((player.gameObject.transform.position.x - transform.position.x) <= distAgro)
         {
-            attackDPS = rangeAtkDPS;
+            attackDPS = Random.Range(minRangeAtkDPS, maxRangeAtkDPS);
 
             currentState = AttackType.Ranged;
 
             attackIndex = 2;
-            Debug.Log("Range");
+
             Attack();
         }
         else
@@ -36,10 +44,28 @@ public class Boss : Enemy
 
             currentState = AttackType.Melee;
 
-            Debug.Log("Melee");
             attackIndex = 1;
             Attack();
         }
+    }
+
+    public override void TakeDamage(float _damage)
+    {
+        base.TakeDamage(_damage);
+
+        currentHits++;
+
+        if (currentHits >= hitsToPause)
+        {
+            isPaused = true;
+            Invoke("StopPause", bossPauseTime);
+        }
+    }
+
+    private void StopPause()
+    {
+        isPaused = false;
+        currentHits = 0;
     }
 
     public void LaunchSword()
@@ -50,4 +76,10 @@ public class Boss : Enemy
         Destroy(_sword, 3f);
     }
 
+    protected override void Anim()
+    {
+        base.Anim();
+
+        anim.SetBool("Paused", isPaused);
+    }
 }

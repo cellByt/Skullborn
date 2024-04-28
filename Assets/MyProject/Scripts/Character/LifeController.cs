@@ -45,7 +45,7 @@ public class LifeController : MonoBehaviour
 
         currentLife = Mathf.Max(currentLife - _damage, 0f);
 
-        if (gameObject.tag == "Player") heartAnim.SetTrigger("Damage");
+        if (gameObject.tag == "Player") heartAnim.SetTrigger("Damage"); //Heart Animation (not the player animation)
 
         if (haveDisplayDMG) FloatingDamage(_damage);
 
@@ -57,8 +57,7 @@ public class LifeController : MonoBehaviour
         if (isDeath) return;
 
         currentLife = Mathf.Min(currentLife + _life, maxLife);
-        if (gameObject.tag == "Player") heartAnim.SetTrigger("Heal");
-
+        if (gameObject.tag == "Player") heartAnim.SetTrigger("Heal"); //Heart Animation (not the player animation)
     }
 
     #endregion

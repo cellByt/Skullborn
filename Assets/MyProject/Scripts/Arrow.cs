@@ -19,5 +19,9 @@ public class Arrow : MonoBehaviour
             _other.GetComponent<Character>().TakeDamage(GameObject.FindGameObjectWithTag("Archery").GetComponent<Enemy>().attackDamage);
             Destroy(gameObject);
         }
+        else if (_other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

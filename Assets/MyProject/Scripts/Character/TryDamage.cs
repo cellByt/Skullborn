@@ -19,8 +19,12 @@ public class TryDamage : MonoBehaviour
         foreach (var _target in _targets)
         {
             _target.GetComponent<Character>().TakeDamage(_character.attackDamage);
-            GameObject _blood = Instantiate(_bloodEffect, _target.transform.position, Quaternion.identity);
-            Destroy(_blood, 0.43f);
+
+            if (_target.tag != "Boss")
+            {
+                GameObject _blood = Instantiate(_bloodEffect, _target.transform.position, Quaternion.identity);
+                Destroy(_blood, 0.43f);
+            }
         }
     }
 }
