@@ -6,9 +6,9 @@ public class Enemy : Character
 {
 
     [Header("IA Variables")]
-    [SerializeField] private float distAgro;
+    [SerializeField] protected float distAgro;
     [SerializeField] private float iaTime;
-    private Player player;
+    protected Player player;
     private Vector2 destiny;
     [SerializeField] private float patrolTime;
     [SerializeField] private float patrolRadius;
@@ -42,7 +42,7 @@ public class Enemy : Character
     }
 
     #region IA
-    private void IA()
+    protected virtual void IA()
     {
         if (isDeath) return;
 
@@ -68,7 +68,7 @@ public class Enemy : Character
         }
     }
 
-    private float DistanceToPlayer()
+    protected float DistanceToPlayer()
     {
         return Vector2.Distance(transform.position, player.gameObject.transform.position);
     }
