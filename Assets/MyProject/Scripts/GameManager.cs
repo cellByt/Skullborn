@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
         if (!onPause)
         {
             pauseScreen.SetActive(true);
+            ShopSytem.instance.shopPanel.SetActive(false);
+            ShopSytem.instance.canOpenShop = false;
             Time.timeScale = 0f;
             onPause = true;
         }
