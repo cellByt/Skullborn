@@ -12,7 +12,8 @@ public class Boss : Enemy
     [SerializeField] private int hitsToPause;
     [SerializeField] private int currentHits;
     [SerializeField] private float bossPauseTime;
-    [SerializeField] private bool isPaused;
+    public bool isPaused;
+    public bool onFight;
 
     private AttackType currentState = AttackType.Melee;
 
@@ -20,7 +21,7 @@ public class Boss : Enemy
     {
         base.Start();
 
-        isPaused = false;
+        isPaused = true;
         defaultAtkDps = attackDPS;
     }
 

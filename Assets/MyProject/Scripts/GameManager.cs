@@ -19,11 +19,16 @@ public class GameManager : MonoBehaviour
     private bool onPause;
 
     private Player player;
+    private Boss boss;
+
+    [Header("Boss Collisions")]
+    [SerializeField] private Collider2D[] collisions;
 
     private void Start()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
 
         Cursor.visible = false;
 
@@ -39,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        OnBossFight();
+
         if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen)
         {
             PauseScreen();
@@ -94,4 +101,22 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    private void OnBossFight()
+    {
+        if (boss.onFight)
+        {
+            foreach (var _collision in collisions)
+            {
+                _collision.isTrigger = false;
+            }
+        }
+        else
+        {
+            foreach (var _collision in collisions)
+            {
+                _collision.isTrigger = true;
+            }
+        }
+    }
 }
