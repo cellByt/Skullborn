@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
         deathScreen.SetActive(false);
         pauseScreen.SetActive(false);
 
-        deathButtons[0].onClick.AddListener(Restart);
-        deathButtons[1].onClick.AddListener(Menu);
+        deathButtons[0].onClick.AddListener(Restart); //Restart Button
+        deathButtons[1].onClick.AddListener(Menu); //Menu Button
 
-        pauseButtons[0].onClick.AddListener(Resume);
-        pauseButtons[1].onClick.AddListener(Restart);
+        pauseButtons[0].onClick.AddListener(Resume); //Resume Button
+        pauseButtons[1].onClick.AddListener(Restart); //Restart Button
     }
 
     private void Update()
