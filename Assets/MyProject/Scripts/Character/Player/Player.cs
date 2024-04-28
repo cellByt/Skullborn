@@ -44,13 +44,15 @@ public class Player : Character
 
         UpdateHearts();
         PlayerInputs();
+        //PlayWalkingSound();
+
         comboRate += Time.deltaTime;
 
         if (direction.x < 0 && !facingLeft && !isDeath || direction.x > 0 && facingLeft && !isDeath)
         {
             Flip();
             CameraFollow.instance.offset.x *= -1f;
-        }
+        } 
 
     }
 
@@ -121,6 +123,22 @@ public class Player : Character
         canMove = true;
     }
 
+    /*
+    private void PlayWalkingSound()
+    {
+        if (rb.velocity.x != 0)
+        {
+            if (!audioS.isPlaying)
+            {
+                PlaySound(3);
+            }
+        }
+        else
+        {
+            audioS.Stop();
+        }
+    }
+    */
     #endregion
 
     private void ComboSystem()

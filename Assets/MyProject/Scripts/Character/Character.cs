@@ -37,7 +37,7 @@ public class Character : LifeController
 
     [Header("SoundEffects")]
     [SerializeField] protected AudioClip[] soundEffect;
-    private AudioSource audioS;
+    protected AudioSource audioS;
 
     protected virtual void Awake()
     {
@@ -184,6 +184,7 @@ public class Character : LifeController
     {
         base.TakeDamage(_damage);
 
+        if (audioS != null) PlaySound(2);
         anim.SetTrigger("Hit");
     }
 
