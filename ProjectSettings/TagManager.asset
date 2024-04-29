@@ -49,3 +49,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sword
+    uniqueID: 310579499
+    locked: 0

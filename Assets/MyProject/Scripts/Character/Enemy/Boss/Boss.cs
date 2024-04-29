@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +8,13 @@ public class Boss : Enemy
 {
     [Header("Boss Variables")]
     [SerializeField] private Transform rangePosAtk;
-    [SerializeField] private float minRangeAtkDPS;
-    [SerializeField] private float maxRangeAtkDPS;
+    [SerializeField] private float minRangeAtkDPS, maxRangeAtkDPS;
     [SerializeField] private float defaultAtkDps;
     [SerializeField] private int hitsToPause;
     [SerializeField] private int currentHits;
     [SerializeField] private float bossPauseTime;
     public bool isPaused;
+    [SerializeField] private bool secondPhase;
     public bool onFight;
 
     [Header("Life Bar")]
@@ -23,12 +24,16 @@ public class Boss : Enemy
     [SerializeField] private float smoothSpeed;
 
     private AttackType currentState = AttackType.Melee;
+    private SpriteRenderer rend;
 
     protected override void Start()
     {
         base.Start();
 
+        rend = GetComponentInChildren<SpriteRenderer>();
+
         isPaused = true;
+
         defaultAtkDps = attackDPS;
 
         lifeBarSlider.maxValue = maxLife;
@@ -47,7 +52,17 @@ public class Boss : Enemy
     {
         if (!player || player.isDeath || isPaused) return;
 
-        if ((player.gameObject.transform.position.x - transform.position.x) <= distAgro)
+        if (currentLife <= maxLife / 2 && !secondPhase)
+        {
+            rend.color = Color.Lerp(Color.white, Color.red, 0.5f);
+
+            attackDamage *= 2f;
+            minRangeAtkDPS = 0.8f;
+            arrowSpeed *= 1.5f;
+            secondPhase = true;
+        }
+
+        else if ((player.gameObject.transform.position.x - transform.position.x) <= distAgro)
         {
             attackDPS = Random.Range(minRangeAtkDPS, maxRangeAtkDPS);
 
