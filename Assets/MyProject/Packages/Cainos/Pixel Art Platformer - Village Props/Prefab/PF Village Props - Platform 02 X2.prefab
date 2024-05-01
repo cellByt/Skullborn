@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866971227014560176}
   - component: {fileID: 8910333728163804179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: R 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5200783512062404882}
   - component: {fileID: 6999613345825429872}
   - component: {fileID: 4741108610018900890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PF Village Props - Platform 02 X2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979072114838865006}
   - component: {fileID: 2193479035401066573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: L 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

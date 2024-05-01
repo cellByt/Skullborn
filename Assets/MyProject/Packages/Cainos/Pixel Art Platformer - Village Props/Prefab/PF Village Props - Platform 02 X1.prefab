@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7208481279798210084}
   - component: {fileID: 1618865607}
   - component: {fileID: 1618865606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PF Village Props - Platform 02 X1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
