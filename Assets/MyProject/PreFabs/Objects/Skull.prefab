@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4876799478071629348}
   - component: {fileID: 8267836281671886335}
   - component: {fileID: -7112860876099505002}
-  - component: {fileID: 2870195086731523758}
   - component: {fileID: -4493657044797870598}
   m_Layer: 9
   m_Name: Skull
@@ -75,13 +74,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 403115400, guid: dd76862657b70c74f80dede91aada482, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.54, y: 0.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,30 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.022155762}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &2870195086731523758
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4735561564646119523}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Radius: 0.26846313
 --- !u!114 &-4493657044797870598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b023ac3b7caae9944b246f93d200dce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 0
+  strengh: 0.2

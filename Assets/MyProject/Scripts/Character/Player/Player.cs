@@ -28,12 +28,18 @@ public class Player : Character
     public int money;
     public int healingPots;
 
+    [Header("Fast Fall")]
+    [SerializeField] private float fallGravity;
+    private float defaultGravity;
+
     protected override void Start()
     {
         base.Start();
 
         canRoll = true;
         canMove = true;
+
+        defaultGravity = rb.gravityScale;
 
         skullsText.gameObject.SetActive(false);
     }
@@ -52,8 +58,12 @@ public class Player : Character
         {
             Flip();
             CameraFollow.instance.offset.x *= -1f;
-        } 
+        }
 
+        if (rb.velocity.y < 0 && !isDeath)
+            rb.gravityScale = fallGravity;
+        else if (!isDeath)
+            rb.gravityScale = defaultGravity;
     }
 
     private void PlayerInputs()
@@ -80,7 +90,7 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop();
 
-        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0)
+        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround())
         {
             canMove = false;
             direction.x = 0f;
