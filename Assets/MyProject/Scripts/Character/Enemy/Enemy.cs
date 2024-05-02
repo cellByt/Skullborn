@@ -113,22 +113,18 @@ public class Enemy : Character
 
     protected void FlipToPlayer()
     {
-        Vector3 _localScale = transform.localScale;
+        float _distPlayer = player.transform.position.x - transform.position.x;
 
-        float distanceToPlayer = player.transform.position.x - transform.position.x;
-
-        if (distanceToPlayer > 0.1f)
+        if (_distPlayer > 0.4f)
         {
-            _localScale.x = Mathf.Abs(_localScale.x);
+            transform.localScale = new Vector3(1, 1, 1);
             facingLeft = false;
         }
-        else if (distanceToPlayer < -0.1f)
+        else if (_distPlayer < -0.4f)
         {
-            _localScale.x = -Mathf.Abs(_localScale.x);
+            transform.localScale = new Vector3(-1, 1, 1);
             facingLeft = true;
         }
-
-        transform.localScale = _localScale;
     }
 
     #endregion
@@ -160,12 +156,6 @@ public class Enemy : Character
             _clone.GetComponent<Character>().facingLeft = true;
             _clone.GetComponent<Transform>().localScale = new Vector3(-1, 1, 1);
         }
-        else
-        {
-            _clone.GetComponent<Character>().facingLeft = false;
-            _clone.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-        }
-
     }
 
     public override void Death()
