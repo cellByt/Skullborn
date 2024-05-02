@@ -85,22 +85,21 @@ public class Player : Character
 
         if (Input.GetButtonDown("Jump") && OnGround() || Input.GetButtonDown("Jump") && coyoteTimer > 0) canJump = true; // Jump
 
-        if (Input.GetButtonDown("Fire1") && OnGround() && !ShopSytem.instance.shopIsOpen)
+        if (Input.GetButtonDown("Fire1") && OnGround() && !ShopSytem.instance.shopIsOpen) // Attack
         {
             isInCombo = true;
 
             Attack();
             ComboSystem();
 
-
             Invoke("ReturnToMove", 0.5f);
-        } // Attack
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll()); // Roll
 
         if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
-        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround())
+        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround()) // HealPot
         {
             canMove = false;
             direction.x = 0f;
@@ -113,7 +112,7 @@ public class Player : Character
 
             GainLife(2);
             ShopSytem.instance.healingText.text = healingPots.ToString();
-        } // HealPot
+        }
     }
 
     #region Movement

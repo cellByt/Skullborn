@@ -52,7 +52,7 @@ public class Enemy : Character
             return;
         }
 
-        if (DistanceToPlayer() <= distAgro)
+        if (DistanceToPlayer() <= distAgro && player.gameObject.transform.position.y <= transform.position.y)
         {
             if (DistanceToPlayer() <= attackRadius)
             {
@@ -153,7 +153,19 @@ public class Enemy : Character
     #region Necromancer
     public void SummonGoblin()
     {
-        Instantiate(enemyPreFab, posAtk.position, Quaternion.identity);
+        GameObject _clone = Instantiate(enemyPreFab, posAtk.position, Quaternion.identity);
+
+        if (facingLeft)
+        {
+            _clone.GetComponent<Character>().facingLeft = true;
+            _clone.GetComponent<Transform>().localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            _clone.GetComponent<Character>().facingLeft = false;
+            _clone.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
+        }
+
     }
 
     public override void Death()

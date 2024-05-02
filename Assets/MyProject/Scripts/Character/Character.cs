@@ -118,11 +118,8 @@ public class Character : LifeController
         {
             case AttackType.Melee:
                 MeleeAttack();
-                if (gameObject.tag == "Player")
-                {
-                    direction.x = 0f;
-                    canMove = false;
-                }
+                direction.x = 0f;
+                canMove = false;
 
                 if (audioS != null) PlaySound(0);
                 break;
@@ -195,10 +192,6 @@ public class Character : LifeController
     {
         base.Death();
 
-        Collider2D _collider = GetComponent<Collider2D>();
-
-        _collider.enabled = false;
-        rb.gravityScale = 0f;
         rb.velocity = new Vector2(0f, 0f);
     }
 }
