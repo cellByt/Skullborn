@@ -32,6 +32,10 @@ public class Player : Character
     [SerializeField] private float fallGravity;
     private float defaultGravity;
 
+    [Header("Coyote Time")]
+    [SerializeField] private float coyoteTime;
+    private float coyoteTimer;
+
     protected override void Start()
     {
         base.Start();
@@ -53,6 +57,12 @@ public class Player : Character
         //PlayWalkingSound();
 
         comboRate += Time.deltaTime;
+        coyoteTimer -= Time.deltaTime;
+
+        if (OnGround())
+        {
+            coyoteTimer = coyoteTime;
+        }
 
         if (direction.x < 0 && !facingLeft && !isDeath || direction.x > 0 && facingLeft && !isDeath)
         {
@@ -73,7 +83,7 @@ public class Player : Character
         float input_x = Input.GetAxisRaw("Horizontal");
         direction.x = input_x;
 
-        if (Input.GetButtonDown("Jump") && OnGround()) canJump = true;
+        if (Input.GetButtonDown("Jump") && OnGround() || Input.GetButtonDown("Jump") && coyoteTimer > 0) canJump = true; // Jump
 
         if (Input.GetButtonDown("Fire1") && OnGround() && !ShopSytem.instance.shopIsOpen)
         {
@@ -84,11 +94,11 @@ public class Player : Character
 
 
             Invoke("ReturnToMove", 0.5f);
-        }
+        } // Attack
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll());
+        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll()); // Roll
 
-        if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop();
+        if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
         if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround())
         {
@@ -103,7 +113,7 @@ public class Player : Character
 
             GainLife(2);
             ShopSytem.instance.healingText.text = healingPots.ToString();
-        }
+        } // HealPot
     }
 
     #region Movement
