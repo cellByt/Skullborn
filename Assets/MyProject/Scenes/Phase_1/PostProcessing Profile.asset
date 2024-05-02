@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
 --- !u!114 &-8545362091153221744
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -37,10 +37,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.253
+    m_Value: 0.201
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.206
+    m_Value: 0.145
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
   m_Name: ChannelMixer
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   redOutRedIn:
     m_OverrideState: 1
     m_Value: 100
@@ -143,29 +143,29 @@ MonoBehaviour:
     m_Value: 1.5
   intensity:
     m_OverrideState: 1
-    m_Value: 76
+    m_Value: 20
   scatter:
     m_OverrideState: 1
-    m_Value: 0.902
+    m_Value: 0.809
   clamp:
     m_OverrideState: 1
-    m_Value: 65472
+    m_Value: 834.66
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.7264151, g: 0.20969227, b: 0.023985418, a: 1}
+    m_Value: {r: 1, g: 0.46264225, b: 0, a: 1}
   highQualityFiltering:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   skipIterations:
     m_OverrideState: 1
     m_Value: 0
   dirtTexture:
-    m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 820abae1480cafd4587d8170927ecd6b, type: 3}
+    m_OverrideState: 0
+    m_Value: {fileID: 2800000, guid: 691d02dec9b77b141a77f615533db733, type: 3}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 1
-    m_Value: 4.15
+    m_OverrideState: 0
+    m_Value: 132.4
 --- !u!114 &5072039973931627634
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -181,7 +181,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.071
+    m_Value: 0.103
 --- !u!114 &6011633869132917837
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -222,13 +222,13 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.6
+    m_Value: 1.2
   contrast:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 11
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.8773585, g: 0.8697393, b: 0.79872733, a: 1}
+    m_Value: {r: 0.8784314, g: 0.8, b: 0.84028196, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
