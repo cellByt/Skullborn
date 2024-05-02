@@ -139,6 +139,9 @@ public class Boss : Enemy
         base.Death();
 
         onFight = false;
+
+        MusicManager.instance.musicSource.clip = MusicManager.instance.musics[0];
+        MusicManager.instance.musicSource.Play();
     }
 
     #endregion

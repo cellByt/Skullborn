@@ -99,7 +99,7 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
-        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround()) // HealPot
+        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround() && !ShopSytem.instance.shopIsOpen) // HealPot
         {
             canMove = false;
             direction.x = 0f;
