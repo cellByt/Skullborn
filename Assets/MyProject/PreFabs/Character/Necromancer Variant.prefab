@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 1000
+  heartAnim: {fileID: 0}
   hearts: []
   fullHeart: {fileID: 0}
   emptyHeart: {fileID: 0}
@@ -175,8 +176,8 @@ MonoBehaviour:
   arrowPrefab: {fileID: 0}
   arrowSpeed: 0
   enemyPreFab: {fileID: 8461299805548028945, guid: 5db4680323ff34741b414e0e7f84ca49, type: 3}
-  skull: {fileID: 0}
-  skullsQuant: 0
+  skull: {fileID: 4735561564646119523, guid: 271f41dbbc7bb0a48ac7032196e527d4, type: 3}
+  skullsQuant: 10
 --- !u!4 &4254598293524751787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6810566956639852105, guid: d4bde039c4e19c542b3538b724e52ce1, type: 3}

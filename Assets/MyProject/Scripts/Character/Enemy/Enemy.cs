@@ -165,6 +165,12 @@ public class Enemy : Character
         if (skull != null) DropSkulls();
 
         if (gameObject.tag == "Necromancer") Invoke("DestroyObject", 0.84f);
+
+        if (gameObject.tag == "Boss")
+        {
+            rb.gravityScale = 0f;
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 
     private void DestroyObject()
