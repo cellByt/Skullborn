@@ -49,6 +49,8 @@ public class ShopSytem : MonoBehaviour
         {
             shopIndicator.SetActive(false);
             canOpenShop = false;
+            shopIsOpen = false;
+            shopPanel.GetComponent<Animator>().SetTrigger("Close");
         }
     }
 

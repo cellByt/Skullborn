@@ -16,7 +16,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] Image[] hearts;
     [SerializeField] Sprite fullHeart;
     [SerializeField] Sprite emptyHeart;
-    [SerializeField] protected bool canTakeDamage;
+    public bool canTakeDamage;
     public bool isDeath;
 
     [Header("Display Damage")]
