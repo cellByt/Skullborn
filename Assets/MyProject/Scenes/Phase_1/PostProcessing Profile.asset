@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8779408338521028406
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
-  m_Name: Tonemapping
-  m_EditorClassIdentifier: 
-  active: 0
-  mode:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-8545362091153221744
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -123,7 +107,6 @@ MonoBehaviour:
   - {fileID: -8545362091153221744}
   - {fileID: 5072039973931627634}
   - {fileID: -27153732641192906}
-  - {fileID: -8779408338521028406}
   - {fileID: -3359430460799626162}
 --- !u!114 &4777867164375987778
 MonoBehaviour:
@@ -140,10 +123,10 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 1.3
   intensity:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 50
   scatter:
     m_OverrideState: 1
     m_Value: 0.809
