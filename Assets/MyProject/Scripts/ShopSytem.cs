@@ -76,7 +76,7 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.skulls > 0)
         {
-            player.money = player.skulls * 2;
+            player.money = player.skulls * 4;
             player.LostSkulls(player.skulls);
 
             coinsText.text = player.money.ToString();
@@ -102,7 +102,7 @@ public class ShopSytem : MonoBehaviour
         {
             player.money = Mathf.Max(player.money - 50, 0);
             coinsText.text = player.money.ToString();
-            player.attackDamage += 5;
+            player.attackDamage += 200;
             Debug.Log("Buy damage");
         }
     }

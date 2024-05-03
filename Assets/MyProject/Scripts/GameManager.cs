@@ -27,9 +27,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Win Screen")]
     [SerializeField] private GameObject winScreen;
-    [SerializeField] private TMP_Text trueText;
     [SerializeField] private TMP_Text initialText;
-    [SerializeField] private TMP_Text comingSoon;
     [SerializeField] private Button menu;
     public bool win;
 
@@ -59,11 +57,7 @@ public class GameManager : MonoBehaviour
         OnBossFight();
 
         if (boss.isDeath)
-        {
-            StartCoroutine(WinScreen());
-
-        }
-
+            WinScreen();
         if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
         {
             PauseScreen();
@@ -107,26 +101,15 @@ public class GameManager : MonoBehaviour
         onPause = false;
     }
 
-    private IEnumerator WinScreen()
+    private void WinScreen()
     {
         win = true;
 
         initialText.gameObject.SetActive(true);
-
-        trueText.gameObject.SetActive(false);
-        comingSoon.gameObject.SetActive(false);
-        menu.gameObject.SetActive(false);
-
         winScreen.SetActive(true);
         deathScreen.SetActive(false);
         pauseScreen.SetActive(false);
         Cursor.visible = true;
-
-        yield return new WaitForSeconds(3f);
-        trueText.gameObject.SetActive(true);
-        comingSoon.gameObject.SetActive(true);
-        menu.gameObject.SetActive(true);
-        initialText.gameObject.SetActive(false);
     }
 
     private void Restart()

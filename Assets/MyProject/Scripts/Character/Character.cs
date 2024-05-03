@@ -18,7 +18,7 @@ public class Character : LifeController
     [SerializeField] protected float groundRadius;
     [SerializeField] protected Transform posPe;
     [SerializeField] protected LayerMask groundLayer;
-    [HideInInspector] public bool facingLeft;
+    public bool facingLeft;
     protected Vector2 direction;
 
     [Header("Attack Variables")]
@@ -194,7 +194,7 @@ public class Character : LifeController
         base.TakeDamage(_damage);
 
         if (audioS != null) PlaySound(2);
-        if (gameObject.tag != "Boss") anim.SetTrigger("Hit");
+        if (gameObject.tag != "Boss" && gameObject.tag != "Archery") anim.SetTrigger("Hit");
     }
 
     #endregion

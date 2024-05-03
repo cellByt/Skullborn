@@ -84,12 +84,10 @@ public class Enemy : Character
             if (destiny.x < transform.position.x)
             {
                 direction.x = -1;
-                //transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (destiny.x > transform.position.x)
             {
                 direction.x = 1;
-                //transform.localScale = new Vector3(1, 1, 1);
             }
             else
                 direction.x = 0;
@@ -134,13 +132,13 @@ public class Enemy : Character
     {
         GameObject _arrow = Instantiate(arrowPrefab, posAtk.position, Quaternion.identity);
 
-        if (facingLeft)
+        if (transform.localScale.x < 0)
         {
-            _arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(-arrowSpeed, 0f);
-            _arrow.transform.Rotate(Vector2.up * 180f);
+            _arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Abs(arrowSpeed) * -1f, 0f);
+            _arrow.GetComponent<Transform>().Rotate(Vector2.up * 180f);
         }
         else
-            _arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(arrowSpeed, 0f);
+            _arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Abs(arrowSpeed), 0f);
     }
 
     #endregion
