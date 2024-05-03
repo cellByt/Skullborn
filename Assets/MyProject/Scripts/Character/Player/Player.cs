@@ -64,7 +64,7 @@ public class Player : Character
         }
 
         if (facingLeft)
-            CameraFollow.instance.offset.x *= -1f;
+            CameraFollow.instance.offset.x = Mathf.Abs(CameraFollow.instance.offset.x) * -1f;
         else
             CameraFollow.instance.offset.x = Mathf.Abs(CameraFollow.instance.offset.x);
 
