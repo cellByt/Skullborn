@@ -23,7 +23,7 @@ public class Boss : Enemy
     [SerializeField] private Slider smoothLifeBar;
     [SerializeField] private float smoothSpeed;
 
-    private AttackType currentState = AttackType.Melee;
+    private AttackType currentState;
     private SpriteRenderer rend;
 
     protected override void Start()

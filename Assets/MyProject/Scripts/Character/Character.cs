@@ -56,6 +56,11 @@ public class Character : LifeController
     protected virtual void Update()
     {
         Anim();
+
+        if (facingLeft && transform.localScale.x < 0 || !facingLeft && transform.localScale.x > 0)
+        {
+            Flip();
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -99,8 +104,14 @@ public class Character : LifeController
 
     protected void Flip()
     {
-        facingLeft = !facingLeft;
-        transform.Rotate(Vector2.up * 180f);
+        if ((transform.localScale.x > 0 && rb.velocity.x < -0.2f) || (transform.localScale.x < 0 && rb.velocity.x > 0.2f))
+        {
+            facingLeft = !facingLeft;
+
+            Vector3 _localScale = transform.localScale;
+            _localScale.x *= -1f;
+            transform.localScale = _localScale;
+        }
     }
 
     #endregion
