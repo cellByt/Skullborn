@@ -76,8 +76,9 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.skulls > 0)
         {
-            player.LostSkulls(1);
-            player.money += 2;
+            player.money = player.skulls * 2;
+            player.LostSkulls(player.skulls);
+
             coinsText.text = player.money.ToString();
             Debug.Log("Skull sell");
         }

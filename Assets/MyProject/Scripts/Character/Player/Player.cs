@@ -76,7 +76,7 @@ public class Player : Character
 
     private void PlayerInputs()
     {
-        if (rolling || !canMove) return;
+        if (rolling || !canMove || GameManager.instance.win) return;
 
         float input_x = Input.GetAxisRaw("Horizontal");
         direction.x = input_x;

@@ -107,7 +107,11 @@ public class Boss : Enemy
     public void LaunchSword()
     {
         GameObject _sword = Instantiate(arrowPrefab, rangePosAtk.position, Quaternion.identity);
+
         _sword.GetComponent<Rigidbody2D>().velocity = new Vector2(-arrowSpeed, 0f);
+
+        if (secondPhase)
+            _sword.GetComponent<SpriteRenderer>().color = Color.red;
 
         Destroy(_sword, 3f);
     }
@@ -140,7 +144,7 @@ public class Boss : Enemy
 
         onFight = false;
 
-        MusicManager.instance.musicSource.clip = MusicManager.instance.musics[0];
+        MusicManager.instance.musicSource.clip = MusicManager.instance.musics[2];
         MusicManager.instance.musicSource.Play();
     }
 

@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,14 @@ public class GameManager : MonoBehaviour
     [Header("Boss Collisions")]
     [SerializeField] private Collider2D[] collisions;
 
+    [Header("Win Screen")]
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private TMP_Text trueText;
+    [SerializeField] private TMP_Text initialText;
+    [SerializeField] private TMP_Text comingSoon;
+    [SerializeField] private Button menu;
+    public bool win;
+
     private void Start()
     {
         instance = this;
@@ -34,19 +43,28 @@ public class GameManager : MonoBehaviour
 
         deathScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        winScreen.SetActive(false);
 
         deathButtons[0].onClick.AddListener(Restart); //Restart Button
         deathButtons[1].onClick.AddListener(Menu); //Menu Button
 
         pauseButtons[0].onClick.AddListener(Resume); //Resume Button
         pauseButtons[1].onClick.AddListener(Restart); //Restart Button
+
+        menu.onClick.AddListener(Menu);
     }
 
     private void Update()
     {
         OnBossFight();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen)
+        if (boss.isDeath)
+        {
+            StartCoroutine(WinScreen());
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
         {
             PauseScreen();
             Cursor.visible = !Cursor.visible;
@@ -87,6 +105,28 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1f;
         onPause = false;
+    }
+
+    private IEnumerator WinScreen()
+    {
+        win = true;
+
+        initialText.gameObject.SetActive(true);
+
+        trueText.gameObject.SetActive(false);
+        comingSoon.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
+
+        winScreen.SetActive(true);
+        deathScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+        Cursor.visible = true;
+
+        yield return new WaitForSeconds(3f);
+        trueText.gameObject.SetActive(true);
+        comingSoon.gameObject.SetActive(true);
+        menu.gameObject.SetActive(true);
+        initialText.gameObject.SetActive(false);
     }
 
     private void Restart()

@@ -71,6 +71,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -493078070, guid: 8ad86b8792e521146ab78026c9d722ec, type: 3}
+    - target: {fileID: 6162009651822585181, guid: 6d35af90e71aae04ba4df819cea62fdf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162009651822585181, guid: 6d35af90e71aae04ba4df819cea62fdf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162009651822585181, guid: 6d35af90e71aae04ba4df819cea62fdf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6162009651822585183, guid: 6d35af90e71aae04ba4df819cea62fdf, type: 3}
       propertyPath: m_Name
       value: Sword Variant
