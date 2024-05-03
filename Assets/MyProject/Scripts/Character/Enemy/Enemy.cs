@@ -84,12 +84,12 @@ public class Enemy : Character
             if (destiny.x < transform.position.x)
             {
                 direction.x = -1;
-                transform.localScale = new Vector3(-1, 1, 1);
+                //transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (destiny.x > transform.position.x)
             {
                 direction.x = 1;
-                transform.localScale = new Vector3(1, 1, 1);
+                //transform.localScale = new Vector3(1, 1, 1);
             }
             else
                 direction.x = 0;
@@ -113,18 +113,17 @@ public class Enemy : Character
 
     protected void FlipToPlayer()
     {
-        float _distPlayer = player.transform.position.x - transform.position.x;
+        float _posPlayer = player.gameObject.transform.position.x;
 
-        if (_distPlayer > 0.4f)
+        Vector3 _localScale = transform.localScale;
+
+        if (((transform.position.x < _posPlayer) && (_localScale.x < 0)) ||
+            ((transform.position.x > _posPlayer) && (_localScale.x > 0)))
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            facingLeft = false;
+            _localScale.x *= -1f;
         }
-        else if (_distPlayer < -0.4f)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            facingLeft = true;
-        }
+
+        transform.localScale = _localScale;
     }
 
     #endregion

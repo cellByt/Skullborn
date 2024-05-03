@@ -63,11 +63,10 @@ public class Player : Character
             coyoteTimer = coyoteTime;
         }
 
-        if (direction.x < 0 && !facingLeft && !isDeath || direction.x > 0 && facingLeft && !isDeath)
-        {
-            Flip();
+        if (facingLeft)
             CameraFollow.instance.offset.x *= -1f;
-        }
+        else
+            CameraFollow.instance.offset.x = Mathf.Abs(CameraFollow.instance.offset.x);
 
         if (rb.velocity.y < 0 && !isDeath)
             rb.gravityScale = fallGravity;
