@@ -9,9 +9,9 @@ public class Player : Character
     [Header("Roll Variables")]
     [SerializeField] private float rollForce;
     [SerializeField] private float rollTime;
+    [SerializeField] private float currentTime;
     [SerializeField] private float nextRollTime;
     public bool rolling;
-    [SerializeField] private bool canRoll;
 
     [Header("Combo Variables")]
     [SerializeField] private float nextCombo;
@@ -40,7 +40,6 @@ public class Player : Character
     {
         base.Start();
 
-        canRoll = true;
         canMove = true;
 
         defaultGravity = rb.gravityScale;
@@ -95,7 +94,7 @@ public class Player : Character
             Invoke("ReturnToMove", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && canRoll) StartCoroutine(Roll()); // Roll
+        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && Time.timeSinceLevelLoad >= currentTime) StartCoroutine(Roll()); // Roll
 
         if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
@@ -120,8 +119,8 @@ public class Player : Character
     {
         anim.SetTrigger("Roll");
         rolling = true;
-        canRoll = false;
         canTakeDamage = false;
+        currentTime = Time.timeSinceLevelLoad + nextRollTime;
 
         if (facingLeft)
             direction.x = -rollForce;
@@ -133,9 +132,6 @@ public class Player : Character
         direction.x = 0f;
         canTakeDamage = true;
         rolling = false;
-
-        yield return new WaitForSeconds(nextRollTime);
-        canRoll = true;
     }
 
     private void ReturnToMove()
