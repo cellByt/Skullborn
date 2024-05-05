@@ -5,6 +5,7 @@ using UnityEngine;
 public class Skull : MonoBehaviour
 {
     private Player player;
+    private AudioSource audioS;
     public int value;
 
     [Header("Up and Down Variables")]
@@ -14,6 +15,8 @@ public class Skull : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        audioS = GetComponent<AudioSource>();
+
         initialPos = transform.position.y;
     }
 
@@ -29,6 +32,8 @@ public class Skull : MonoBehaviour
     {
         if (_other.gameObject.CompareTag("Player"))
         {
+            audioS.Play();
+
             player.GainSkulls(value);
             Destroy(gameObject);
         }

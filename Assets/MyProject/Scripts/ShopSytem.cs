@@ -14,6 +14,7 @@ public class ShopSytem : MonoBehaviour
     public TMP_Text healingText;
     [SerializeField] private TMP_Text coinsText;
     [SerializeField] private Button[] shopButtons;
+    private AudioSource audioS;
     public bool canOpenShop;
     public bool shopIsOpen;
 
@@ -22,6 +23,8 @@ public class ShopSytem : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        audioS = GetComponent<AudioSource>();
 
         shopIndicator.SetActive(false);
         shopPanel.SetActive(false);
@@ -76,6 +79,8 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.skulls > 0)
         {
+            audioS.Play();
+
             player.money = player.skulls * 4;
             player.LostSkulls(player.skulls);
 
@@ -88,6 +93,8 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.money >= 16 && player.healingPots < 6)
         {
+            audioS.Play();
+
             player.money = Mathf.Max(player.money - 16, 0);
             player.healingPots++;
             healingText.text = player.healingPots.ToString();
@@ -100,6 +107,8 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.money >= 50)
         {
+            audioS.Play();
+
             player.money = Mathf.Max(player.money - 50, 0);
             coinsText.text = player.money.ToString();
             player.attackDamage += 200;
