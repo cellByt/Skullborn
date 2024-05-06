@@ -93,11 +93,11 @@ public class Player : Character
             Invoke("ReturnToMove", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && Time.timeSinceLevelLoad >= currentTime) StartCoroutine(Roll()); // Roll
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1) && OnGround() && Time.timeSinceLevelLoad >= currentTime) StartCoroutine(Roll()); // Roll
 
-        if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton6) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
-        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround() && !ShopSytem.instance.shopIsOpen) // HealPot
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround() && !ShopSytem.instance.shopIsOpen) // HealPot
         {
             canMove = false;
             direction.x = 0f;

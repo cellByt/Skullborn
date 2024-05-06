@@ -34,7 +34,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 2) // Healing Pot Tutorial
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2))
                 popUpIndex++;
         }
         else if (popUpIndex == 3) // Combat Tutorial
@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 4) // Roll Tutorial
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick2Button1))
             {
                 popUpIndex++;
             }
