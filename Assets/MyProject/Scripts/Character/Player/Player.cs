@@ -78,8 +78,11 @@ public class Player : Character
     {
         if (rolling || !canMove || GameManager.instance.win) return;
 
-        float input_x = Input.GetAxisRaw("Horizontal");
-        direction.x = input_x;
+        if (!ShopSytem.instance.shopIsOpen)
+        {
+            float input_x = Input.GetAxisRaw("Horizontal");
+            direction.x = input_x;
+        }
 
         if (Input.GetButtonDown("Jump") && OnGround() || Input.GetButtonDown("Jump") && coyoteTimer > 0) canJump = true; // Jump
 

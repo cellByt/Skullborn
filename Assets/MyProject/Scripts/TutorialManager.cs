@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 4) // Roll Tutorial
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick2Button1))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
                 popUpIndex++;
             }

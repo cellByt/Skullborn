@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button menu;
     public bool win;
 
+    [SerializeField] private float sensitivity = 2.0f;
+
     private void Start()
     {
         instance = this;
