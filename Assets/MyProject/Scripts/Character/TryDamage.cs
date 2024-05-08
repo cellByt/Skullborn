@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TryDamage : MonoBehaviour
 {
+    public void ReceiveDamage()
+    {
+        var _character = GetComponentInParent<Character>();
+        _character.takeDamage = !_character.takeDamage;
+    }
+
     private void TakeDamage()
     {
         Character _character = GetComponentInParent<Character>();

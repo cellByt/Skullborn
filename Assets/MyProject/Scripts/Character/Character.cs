@@ -40,6 +40,7 @@ public class Character : LifeController
     [Header("SoundEffects")]
     [SerializeField] protected AudioClip[] soundEffect;
     protected AudioSource audioS;
+    public bool takeDamage;
 
     protected virtual void Awake()
     {

@@ -46,6 +46,12 @@ public class Enemy : Character
     {
         if (isDeath) return;
 
+        if (takeDamage)
+        {
+            direction.x = 0f;
+            return;
+        }
+
         if (!player || player.isDeath)
         {
             Patrol();
