@@ -303,7 +303,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157947054}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -313,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -30}
+  m_AnchoredPosition: {x: -400, y: 50}
   m_SizeDelta: {x: 105.3742, y: 57.7009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157947056
@@ -1496,7 +1496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -90, y: -85}
+  m_AnchoredPosition: {x: -90, y: -165}
   m_SizeDelta: {x: 906.8074, y: 178.9351}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1295986801
@@ -1521,8 +1521,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SkullBorn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb8ffa71fa3e45442b87095cb876bb3d, type: 2}
-  m_sharedMaterial: {fileID: -2192589448090370222, guid: eb8ffa71fa3e45442b87095cb876bb3d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4ff039658faaf64fbb2907a68dfbec9, type: 2}
+  m_sharedMaterial: {fileID: 697886827814940284, guid: f4ff039658faaf64fbb2907a68dfbec9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1546,8 +1546,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1820,7 +1820,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393645294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1830,7 +1830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 600, y: -30}
+  m_AnchoredPosition: {x: 581, y: 50}
   m_SizeDelta: {x: 105.3742, y: 57.7009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393645296
