@@ -20,7 +20,7 @@ public class TryDamage : MonoBehaviour
         {
             _target.GetComponent<Character>().TakeDamage(_character.attackDamage);
 
-            if (_target.tag != "Boss")
+            if (_target.tag != "Boss" && !_target.GetComponent<LifeController>().isDeath)
             {
                 GameObject _blood = Instantiate(_bloodEffect, _target.transform.position, Quaternion.identity);
                 Destroy(_blood, 0.43f);

@@ -25,6 +25,7 @@ public class Player : Character
     [SerializeField] Vector3 offset;
 
     [Header("Change Status Variables")]
+    private float newDamage;
     public int money;
     public int healingPots;
 
@@ -41,6 +42,7 @@ public class Player : Character
         base.Start();
 
         canMove = true;
+        newDamage = attackDamage * 2;
 
         defaultGravity = rb.gravityScale;
 
@@ -144,6 +146,8 @@ public class Player : Character
 
     private void ComboSystem()
     {
+        attackDamage = initialDamage;
+
         if (isInCombo)
         {
             if (attackIndex > 3 || comboRate >= nextCombo)
@@ -152,7 +156,12 @@ public class Player : Character
                 comboRate = 0f;
                 attackIndex = 0;
             }
-            else Attack();
+            else
+            {
+                if (attackIndex == 3) attackDamage = newDamage;
+
+                Attack();
+            }
         }
     }
 
