@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         if (boss.isDeath)
             WinScreen();
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
         {
             PauseScreen();
             Cursor.visible = !Cursor.visible;

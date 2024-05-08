@@ -111,7 +111,7 @@ public class ShopSytem : MonoBehaviour
 
             player.money = Mathf.Max(player.money - 50, 0);
             coinsText.text = player.money.ToString();
-            player.attackDamage += 200;
+            player.attackDamage += 20;
             Debug.Log("Buy damage");
         }
     }

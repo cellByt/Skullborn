@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLife: 0
-  maxLife: 999
+  maxLife: 80
+  heartAnim: {fileID: 0}
   hearts: []
   fullHeart: {fileID: 0}
   emptyHeart: {fileID: 0}
@@ -176,7 +177,7 @@ MonoBehaviour:
     m_Bits: 256
   attackRadius: 0.8
   attackDPS: 1
-  attackDamage: 40
+  attackDamage: 1
   attackIndex: 0
   posAtk: {fileID: 7484288752540656707}
   atkType: 1

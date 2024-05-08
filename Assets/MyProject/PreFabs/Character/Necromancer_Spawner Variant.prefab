@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 157353599318984273, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
+      propertyPath: maxLife
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 157353599318984273, guid: 715623b03abdcc24991d5b81995e2b3e, type: 3}
       propertyPath: distAgro
       value: 3
       objectReference: {fileID: 0}

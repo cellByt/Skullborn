@@ -53,7 +53,6 @@ public class Player : Character
 
         UpdateHearts();
         PlayerInputs();
-        //PlayWalkingSound();
 
         comboRate += Time.deltaTime;
         coyoteTimer -= Time.deltaTime;
@@ -84,7 +83,7 @@ public class Player : Character
             direction.x = input_x;
         }
 
-        if (Input.GetButtonDown("Jump") && OnGround() || Input.GetButtonDown("Jump") && coyoteTimer > 0) canJump = true; // Jump
+        if (Input.GetButtonDown("Jump") && OnGround() && coyoteTimer > 0) canJump = true; // Jump
 
         if (Input.GetButtonDown("Fire1") && OnGround() && !ShopSytem.instance.shopIsOpen) // Attack
         {
@@ -96,11 +95,11 @@ public class Player : Character
             Invoke("ReturnToMove", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1) && OnGround() && Time.timeSinceLevelLoad >= currentTime) StartCoroutine(Roll()); // Roll
+        if (Input.GetKeyDown(KeyCode.LeftShift) && OnGround() && Time.timeSinceLevelLoad >= currentTime) StartCoroutine(Roll()); // Roll
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton6) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
+        if (Input.GetKeyDown(KeyCode.E) && ShopSytem.instance.canOpenShop) ShopSytem.instance.Shop(); // Shop
 
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround() && !ShopSytem.instance.shopIsOpen) // HealPot
+        if (Input.GetKeyDown(KeyCode.F) && !isDeath && currentLife != maxLife && healingPots > 0 && OnGround() && !ShopSytem.instance.shopIsOpen) // HealPot
         {
             canMove = false;
             direction.x = 0f;
@@ -141,22 +140,6 @@ public class Player : Character
         canMove = true;
     }
 
-    /*
-    private void PlayWalkingSound()
-    {
-        if (rb.velocity.x != 0)
-        {
-            if (!audioS.isPlaying)
-            {
-                PlaySound(3);
-            }
-        }
-        else
-        {
-            audioS.Stop();
-        }
-    }
-    */
     #endregion
 
     private void ComboSystem()
