@@ -26,6 +26,7 @@ public class Character : LifeController
     public float attackRadius;
     [SerializeField] protected float attackDPS;
     public float attackDamage;
+    protected float initialDamage;
     protected float nextAttack;
     [SerializeField] protected float attackIndex;
     public Transform posAtk;
@@ -50,6 +51,7 @@ public class Character : LifeController
     {
         base.Start();
 
+        initialDamage = attackDamage;
         canMove = true;
     }
 
@@ -137,6 +139,8 @@ public class Character : LifeController
 
             case AttackType.Ranged:
                 RangeAttack();
+                direction.x = 0f;
+
                 if (audioS != null) PlaySound(0);
                 break;
         }
