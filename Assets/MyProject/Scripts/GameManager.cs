@@ -50,8 +50,6 @@ public class GameManager : MonoBehaviour
 
         pauseButtons[0].onClick.AddListener(Resume); //Resume Button
         pauseButtons[1].onClick.AddListener(Restart); //Restart Button
-
-        menu.onClick.AddListener(Menu);
     }
 
     private void Update()
@@ -60,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         if (boss.isDeath)
             WinScreen();
-        if (Input.GetKeyDown(KeyCode.Escape) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
+        if (Input.GetKeyDown(KeyCode.LeftAlt) && !player.isDeath && !ShopSytem.instance.shopIsOpen && !win)
         {
             PauseScreen();
             Cursor.visible = !Cursor.visible;
@@ -120,7 +118,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Menu()
+    public void Menu()
     {
         SceneManager.LoadScene("Menu");
     }

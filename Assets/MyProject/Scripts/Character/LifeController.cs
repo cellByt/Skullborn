@@ -28,7 +28,9 @@ public class LifeController : MonoBehaviour
     protected virtual void Start()
     {
         canTakeDamage = true;
-        currentLife = maxLife;
+
+        if (gameObject.name != "Player")
+            currentLife = maxLife;
 
         heartAnim = GameObject.FindGameObjectWithTag("Heart").GetComponent<Animator>();
     }

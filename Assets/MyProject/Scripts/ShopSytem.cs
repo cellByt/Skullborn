@@ -15,6 +15,7 @@ public class ShopSytem : MonoBehaviour
     [SerializeField] private TMP_Text coinsText;
     [SerializeField] private Button[] shopButtons;
     private AudioSource audioS;
+    [SerializeField] private AudioClip[] sounds;
     public bool canOpenShop;
     public bool shopIsOpen;
 
@@ -61,6 +62,9 @@ public class ShopSytem : MonoBehaviour
     {
         if (!shopIsOpen)
         {
+            audioS.clip = sounds[0]; // MenuOpen soundeffect
+            audioS.Play();
+
             shopPanel.SetActive(true);
             shopIndicator.SetActive(false);
             Cursor.visible = true;
@@ -79,6 +83,7 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.skulls > 0)
         {
+            audioS.clip = sounds[1]; // Sell item
             audioS.Play();
 
             player.money = player.skulls * 4;
@@ -93,6 +98,7 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.money >= 16 && player.healingPots < 6)
         {
+            audioS.clip = sounds[1]; // Buy soundEffect
             audioS.Play();
 
             player.money = Mathf.Max(player.money - 16, 0);
@@ -107,6 +113,7 @@ public class ShopSytem : MonoBehaviour
     {
         if (player.money >= 50)
         {
+            audioS.clip = sounds[1]; // Buy soundEffect
             audioS.Play();
 
             player.money = Mathf.Max(player.money - 50, 0);
